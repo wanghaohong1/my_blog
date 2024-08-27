@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Git关键指令 | 王豪鸿的个人博客</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js">
+    <link rel="icon" href="/my_blog/favicon.ico">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?2675818a983a3131404cee835018f016";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      </script>
+    <meta name="description" content="贴心的编程学习路线，全面的编程知识百科">
+    <meta property="og:site_name" content="王豪鸿的个人博客">
+    <meta property="og:title" content="Git关键指令">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://codefather.cn/git%E6%8C%87%E4%BB%A4/">
+    <meta name="twitter:title" content="Git关键指令">
+    <meta name="twitter:url" content="https://codefather.cn/git%E6%8C%87%E4%BB%A4/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="程序员, 编程, 计算机">
+    <meta property="article:tag" content="程序员">
+    <meta name="keywords" content="程序员鱼皮, 编程学习路线, 编程知识百科, Java, 编程导航, 前端, 开发, 编程分享, 项目, IT, 求职, 面经">
+    
+    <link rel="preload" href="/my_blog/assets/css/0.styles.cc14dc2f.css" as="style"><link rel="preload" href="/my_blog/assets/js/app.635dd26a.js" as="script"><link rel="preload" href="/my_blog/assets/js/2.8c322ccd.js" as="script"><link rel="preload" href="/my_blog/assets/js/65.193dfc9c.js" as="script"><link rel="prefetch" href="/my_blog/assets/js/1.772e8449.js"><link rel="prefetch" href="/my_blog/assets/js/10.d9532d8f.js"><link rel="prefetch" href="/my_blog/assets/js/100.7f496a5e.js"><link rel="prefetch" href="/my_blog/assets/js/101.20d75d4e.js"><link rel="prefetch" href="/my_blog/assets/js/102.a41fef88.js"><link rel="prefetch" href="/my_blog/assets/js/103.87dc1aae.js"><link rel="prefetch" href="/my_blog/assets/js/104.a09771c6.js"><link rel="prefetch" href="/my_blog/assets/js/105.0e53ddf7.js"><link rel="prefetch" href="/my_blog/assets/js/106.6e7ebe50.js"><link rel="prefetch" href="/my_blog/assets/js/107.38d6c9ee.js"><link rel="prefetch" href="/my_blog/assets/js/108.e25593e5.js"><link rel="prefetch" href="/my_blog/assets/js/109.4e601682.js"><link rel="prefetch" href="/my_blog/assets/js/11.2f89b5eb.js"><link rel="prefetch" href="/my_blog/assets/js/110.60c5074b.js"><link rel="prefetch" href="/my_blog/assets/js/111.78017585.js"><link rel="prefetch" href="/my_blog/assets/js/112.96c75f49.js"><link rel="prefetch" href="/my_blog/assets/js/113.d4637c3f.js"><link rel="prefetch" href="/my_blog/assets/js/114.f76b764a.js"><link rel="prefetch" href="/my_blog/assets/js/115.447cdfd3.js"><link rel="prefetch" href="/my_blog/assets/js/116.9d5d3385.js"><link rel="prefetch" href="/my_blog/assets/js/117.c8683949.js"><link rel="prefetch" href="/my_blog/assets/js/118.687118e2.js"><link rel="prefetch" href="/my_blog/assets/js/119.6ce8ec85.js"><link rel="prefetch" href="/my_blog/assets/js/12.f03f0230.js"><link rel="prefetch" href="/my_blog/assets/js/120.fa48d833.js"><link rel="prefetch" href="/my_blog/assets/js/121.956c783d.js"><link rel="prefetch" href="/my_blog/assets/js/122.cafe4404.js"><link rel="prefetch" href="/my_blog/assets/js/123.22c3f590.js"><link rel="prefetch" href="/my_blog/assets/js/124.d816da2d.js"><link rel="prefetch" href="/my_blog/assets/js/125.fdd5b37d.js"><link rel="prefetch" href="/my_blog/assets/js/126.aeda75bb.js"><link rel="prefetch" href="/my_blog/assets/js/127.bf3b4c45.js"><link rel="prefetch" href="/my_blog/assets/js/128.23f648fd.js"><link rel="prefetch" href="/my_blog/assets/js/129.45ee3e2c.js"><link rel="prefetch" href="/my_blog/assets/js/13.52940164.js"><link rel="prefetch" href="/my_blog/assets/js/130.c9475b55.js"><link rel="prefetch" href="/my_blog/assets/js/131.d2853cf3.js"><link rel="prefetch" href="/my_blog/assets/js/132.0a4786ae.js"><link rel="prefetch" href="/my_blog/assets/js/133.1a340322.js"><link rel="prefetch" href="/my_blog/assets/js/134.892ca72c.js"><link rel="prefetch" href="/my_blog/assets/js/135.7df04a85.js"><link rel="prefetch" href="/my_blog/assets/js/136.293d1f17.js"><link rel="prefetch" href="/my_blog/assets/js/137.ef6d9e7a.js"><link rel="prefetch" href="/my_blog/assets/js/138.b5dff5fc.js"><link rel="prefetch" href="/my_blog/assets/js/139.5a4f2a98.js"><link rel="prefetch" href="/my_blog/assets/js/14.ade1e74d.js"><link rel="prefetch" href="/my_blog/assets/js/140.869f6784.js"><link rel="prefetch" href="/my_blog/assets/js/141.65c84fa0.js"><link rel="prefetch" href="/my_blog/assets/js/142.1998d8d4.js"><link rel="prefetch" href="/my_blog/assets/js/143.efae150a.js"><link rel="prefetch" href="/my_blog/assets/js/144.64925202.js"><link rel="prefetch" href="/my_blog/assets/js/145.3f77074c.js"><link rel="prefetch" href="/my_blog/assets/js/146.cfa3c288.js"><link rel="prefetch" href="/my_blog/assets/js/147.80fb2b19.js"><link rel="prefetch" href="/my_blog/assets/js/148.ec7b1938.js"><link rel="prefetch" href="/my_blog/assets/js/149.dcb3a37a.js"><link rel="prefetch" href="/my_blog/assets/js/15.970a8ca5.js"><link rel="prefetch" href="/my_blog/assets/js/150.08cb63f6.js"><link rel="prefetch" href="/my_blog/assets/js/151.5d70b236.js"><link rel="prefetch" href="/my_blog/assets/js/152.dddff763.js"><link rel="prefetch" href="/my_blog/assets/js/153.66a5dab1.js"><link rel="prefetch" href="/my_blog/assets/js/154.7c6c2476.js"><link rel="prefetch" href="/my_blog/assets/js/155.6e98a6ab.js"><link rel="prefetch" href="/my_blog/assets/js/156.46483400.js"><link rel="prefetch" href="/my_blog/assets/js/157.3c1ede39.js"><link rel="prefetch" href="/my_blog/assets/js/158.be691a46.js"><link rel="prefetch" href="/my_blog/assets/js/159.0b6d9989.js"><link rel="prefetch" href="/my_blog/assets/js/16.ff971500.js"><link rel="prefetch" href="/my_blog/assets/js/160.971174fe.js"><link rel="prefetch" href="/my_blog/assets/js/161.17a5abe8.js"><link rel="prefetch" href="/my_blog/assets/js/162.80ac8118.js"><link rel="prefetch" href="/my_blog/assets/js/163.bdd662af.js"><link rel="prefetch" href="/my_blog/assets/js/164.896e9db5.js"><link rel="prefetch" href="/my_blog/assets/js/165.e5354833.js"><link rel="prefetch" href="/my_blog/assets/js/166.051e8511.js"><link rel="prefetch" href="/my_blog/assets/js/167.8d230ad6.js"><link rel="prefetch" href="/my_blog/assets/js/168.56120141.js"><link rel="prefetch" href="/my_blog/assets/js/169.4d027f04.js"><link rel="prefetch" href="/my_blog/assets/js/17.4b045b26.js"><link rel="prefetch" href="/my_blog/assets/js/170.70abf7bb.js"><link rel="prefetch" href="/my_blog/assets/js/171.49f0fe10.js"><link rel="prefetch" href="/my_blog/assets/js/172.e278b1de.js"><link rel="prefetch" href="/my_blog/assets/js/173.001ea5ca.js"><link rel="prefetch" href="/my_blog/assets/js/174.1e600aa9.js"><link rel="prefetch" href="/my_blog/assets/js/175.8517fbe7.js"><link rel="prefetch" href="/my_blog/assets/js/176.d6a0de4c.js"><link rel="prefetch" href="/my_blog/assets/js/177.5ff4a06f.js"><link rel="prefetch" href="/my_blog/assets/js/178.4bf51de9.js"><link rel="prefetch" href="/my_blog/assets/js/179.81a72fcf.js"><link rel="prefetch" href="/my_blog/assets/js/18.d0f0bd51.js"><link rel="prefetch" href="/my_blog/assets/js/180.a5f7855b.js"><link rel="prefetch" href="/my_blog/assets/js/181.6ed81a04.js"><link rel="prefetch" href="/my_blog/assets/js/182.200607d2.js"><link rel="prefetch" href="/my_blog/assets/js/183.012650d7.js"><link rel="prefetch" href="/my_blog/assets/js/184.fa2f8f2d.js"><link rel="prefetch" href="/my_blog/assets/js/185.f98684ec.js"><link rel="prefetch" href="/my_blog/assets/js/186.3a121541.js"><link rel="prefetch" href="/my_blog/assets/js/187.db3d1ff9.js"><link rel="prefetch" href="/my_blog/assets/js/188.e696e8cd.js"><link rel="prefetch" href="/my_blog/assets/js/189.ba5c9f0d.js"><link rel="prefetch" href="/my_blog/assets/js/19.5740e4d6.js"><link rel="prefetch" href="/my_blog/assets/js/190.0d5ec908.js"><link rel="prefetch" href="/my_blog/assets/js/191.622ad6a0.js"><link rel="prefetch" href="/my_blog/assets/js/192.457e0d8f.js"><link rel="prefetch" href="/my_blog/assets/js/193.e6d2508f.js"><link rel="prefetch" href="/my_blog/assets/js/194.842ffb8d.js"><link rel="prefetch" href="/my_blog/assets/js/195.e4ddcdb0.js"><link rel="prefetch" href="/my_blog/assets/js/196.7c177169.js"><link rel="prefetch" href="/my_blog/assets/js/197.bc8c3a0f.js"><link rel="prefetch" href="/my_blog/assets/js/198.a4ff29cb.js"><link rel="prefetch" href="/my_blog/assets/js/199.872babb0.js"><link rel="prefetch" href="/my_blog/assets/js/20.8885a4fa.js"><link rel="prefetch" href="/my_blog/assets/js/200.2c7c7511.js"><link rel="prefetch" href="/my_blog/assets/js/201.67a1b971.js"><link rel="prefetch" href="/my_blog/assets/js/202.f1672012.js"><link rel="prefetch" href="/my_blog/assets/js/203.6f579360.js"><link rel="prefetch" href="/my_blog/assets/js/204.9ea95b93.js"><link rel="prefetch" href="/my_blog/assets/js/205.9a4700a2.js"><link rel="prefetch" href="/my_blog/assets/js/21.0bb62db4.js"><link rel="prefetch" href="/my_blog/assets/js/22.3e8347a6.js"><link rel="prefetch" href="/my_blog/assets/js/23.ceb5a5ff.js"><link rel="prefetch" href="/my_blog/assets/js/24.5bc56ac4.js"><link rel="prefetch" href="/my_blog/assets/js/25.15e1f641.js"><link rel="prefetch" href="/my_blog/assets/js/26.35b2bbdc.js"><link rel="prefetch" href="/my_blog/assets/js/27.4dc8b9ac.js"><link rel="prefetch" href="/my_blog/assets/js/28.4af8f80c.js"><link rel="prefetch" href="/my_blog/assets/js/29.67ed3789.js"><link rel="prefetch" href="/my_blog/assets/js/3.4dc033c7.js"><link rel="prefetch" href="/my_blog/assets/js/30.ae2784fd.js"><link rel="prefetch" href="/my_blog/assets/js/31.79fc4cca.js"><link rel="prefetch" href="/my_blog/assets/js/32.34ba096a.js"><link rel="prefetch" href="/my_blog/assets/js/33.ff97c22d.js"><link rel="prefetch" href="/my_blog/assets/js/34.0c16964d.js"><link rel="prefetch" href="/my_blog/assets/js/35.2f3dfc25.js"><link rel="prefetch" href="/my_blog/assets/js/36.21513e30.js"><link rel="prefetch" href="/my_blog/assets/js/37.1ade0b6b.js"><link rel="prefetch" href="/my_blog/assets/js/38.a53d9aa2.js"><link rel="prefetch" href="/my_blog/assets/js/39.91d0314d.js"><link rel="prefetch" href="/my_blog/assets/js/4.2f502b73.js"><link rel="prefetch" href="/my_blog/assets/js/40.6ffc2f2f.js"><link rel="prefetch" href="/my_blog/assets/js/41.5c741871.js"><link rel="prefetch" href="/my_blog/assets/js/42.0622d880.js"><link rel="prefetch" href="/my_blog/assets/js/43.2dbf1a05.js"><link rel="prefetch" href="/my_blog/assets/js/44.ae188fd5.js"><link rel="prefetch" href="/my_blog/assets/js/45.6aaf491b.js"><link rel="prefetch" href="/my_blog/assets/js/46.26a7558c.js"><link rel="prefetch" href="/my_blog/assets/js/47.a85fd1c7.js"><link rel="prefetch" href="/my_blog/assets/js/48.84c0525f.js"><link rel="prefetch" href="/my_blog/assets/js/49.6ca5e036.js"><link rel="prefetch" href="/my_blog/assets/js/5.7b1f056c.js"><link rel="prefetch" href="/my_blog/assets/js/50.384dc640.js"><link rel="prefetch" href="/my_blog/assets/js/51.32b7f05c.js"><link rel="prefetch" href="/my_blog/assets/js/52.bad7c0ce.js"><link rel="prefetch" href="/my_blog/assets/js/53.9b447cff.js"><link rel="prefetch" href="/my_blog/assets/js/54.0c7dda5f.js"><link rel="prefetch" href="/my_blog/assets/js/55.4c6dc400.js"><link rel="prefetch" href="/my_blog/assets/js/56.b6408150.js"><link rel="prefetch" href="/my_blog/assets/js/57.217d8e70.js"><link rel="prefetch" href="/my_blog/assets/js/58.81b706d7.js"><link rel="prefetch" href="/my_blog/assets/js/59.66988ac4.js"><link rel="prefetch" href="/my_blog/assets/js/6.056886f1.js"><link rel="prefetch" href="/my_blog/assets/js/60.c8b9f2dd.js"><link rel="prefetch" href="/my_blog/assets/js/61.933d6bc2.js"><link rel="prefetch" href="/my_blog/assets/js/62.284fe6dc.js"><link rel="prefetch" href="/my_blog/assets/js/63.6ae39b81.js"><link rel="prefetch" href="/my_blog/assets/js/64.c41b8c3e.js"><link rel="prefetch" href="/my_blog/assets/js/66.637444b0.js"><link rel="prefetch" href="/my_blog/assets/js/67.2a3522be.js"><link rel="prefetch" href="/my_blog/assets/js/68.faeeac3e.js"><link rel="prefetch" href="/my_blog/assets/js/69.20dc7b82.js"><link rel="prefetch" href="/my_blog/assets/js/7.a96cecf9.js"><link rel="prefetch" href="/my_blog/assets/js/70.da36114b.js"><link rel="prefetch" href="/my_blog/assets/js/71.6fbd8e70.js"><link rel="prefetch" href="/my_blog/assets/js/72.c568b0f5.js"><link rel="prefetch" href="/my_blog/assets/js/73.713060cb.js"><link rel="prefetch" href="/my_blog/assets/js/74.5d59f502.js"><link rel="prefetch" href="/my_blog/assets/js/75.f9f0e2db.js"><link rel="prefetch" href="/my_blog/assets/js/76.9ba26d3e.js"><link rel="prefetch" href="/my_blog/assets/js/77.aabf7684.js"><link rel="prefetch" href="/my_blog/assets/js/78.4b0dd6f9.js"><link rel="prefetch" href="/my_blog/assets/js/79.752cd1f0.js"><link rel="prefetch" href="/my_blog/assets/js/80.85b1b643.js"><link rel="prefetch" href="/my_blog/assets/js/81.3c598aba.js"><link rel="prefetch" href="/my_blog/assets/js/82.9d699c63.js"><link rel="prefetch" href="/my_blog/assets/js/83.93a6435f.js"><link rel="prefetch" href="/my_blog/assets/js/84.3b3afd32.js"><link rel="prefetch" href="/my_blog/assets/js/85.a3d25dc8.js"><link rel="prefetch" href="/my_blog/assets/js/86.f6f12160.js"><link rel="prefetch" href="/my_blog/assets/js/87.363996a0.js"><link rel="prefetch" href="/my_blog/assets/js/88.be742599.js"><link rel="prefetch" href="/my_blog/assets/js/89.7772dc30.js"><link rel="prefetch" href="/my_blog/assets/js/90.0911110b.js"><link rel="prefetch" href="/my_blog/assets/js/91.bef042a5.js"><link rel="prefetch" href="/my_blog/assets/js/92.b0acba51.js"><link rel="prefetch" href="/my_blog/assets/js/93.5abf03c5.js"><link rel="prefetch" href="/my_blog/assets/js/94.0d0e3aed.js"><link rel="prefetch" href="/my_blog/assets/js/95.058d6fb6.js"><link rel="prefetch" href="/my_blog/assets/js/96.cb258da8.js"><link rel="prefetch" href="/my_blog/assets/js/97.ff426b0d.js"><link rel="prefetch" href="/my_blog/assets/js/98.8554c306.js"><link rel="prefetch" href="/my_blog/assets/js/99.89385204.js"><link rel="prefetch" href="/my_blog/assets/js/vendors~docsearch.9f962556.js">
+    <link rel="stylesheet" href="/my_blog/assets/css/0.styles.cc14dc2f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/my_blog/" class="home-link router-link-active"><img src="/my_blog/logo.png" alt="王豪鸿的个人博客" class="logo"> <span class="site-name can-hide">王豪鸿的个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/my_blog/个人简历/" class="nav-link">
+  个人简历
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习笔记" class="dropdown-title"><span class="title">学习笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="学习笔记" class="mobile-dropdown-title"><span class="title">学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#后端相关" class="nav-link">
+  后端相关
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#前端开发" class="nav-link">
+  前端开发
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#408相关" class="nav-link">
+  408相关
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#小程序开发" class="nav-link">
+  小程序开发
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#专业课" class="nav-link">
+  专业课
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#AI知识" class="nav-link">
+  AI知识
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#C语言" class="nav-link">
+  C语言
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#JavaWeb" class="nav-link">
+  JavaWeb
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#Spring&amp;SpringBoot" class="nav-link">
+  Spring&amp;SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#Vue2学习" class="nav-link">
+  Vue2学习
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#Vue3学习" class="nav-link">
+  Vue3学习
+</a></li></ul></div></div><div class="nav-item"><a href="/my_blog/项目实战/" class="nav-link">
+  项目实战
+</a></div><div class="nav-item"><a href="/my_blog/知识碎片/" class="nav-link">
+  技术知识
+</a></div><div class="nav-item"><a href="/my_blog/学习路线/" class="nav-link">
+  学习路线
+</a></div><div class="nav-item"><a href="/my_blog/作者/" class="nav-link">
+  作者
+</a></div> <a href="https://github.com/liyupi/codefather" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/my_blog/个人简历/" class="nav-link">
+  个人简历
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习笔记" class="dropdown-title"><span class="title">学习笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="学习笔记" class="mobile-dropdown-title"><span class="title">学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#后端相关" class="nav-link">
+  后端相关
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#前端开发" class="nav-link">
+  前端开发
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#408相关" class="nav-link">
+  408相关
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#小程序开发" class="nav-link">
+  小程序开发
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#专业课" class="nav-link">
+  专业课
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#AI知识" class="nav-link">
+  AI知识
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#C语言" class="nav-link">
+  C语言
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#JavaWeb" class="nav-link">
+  JavaWeb
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#Spring&amp;SpringBoot" class="nav-link">
+  Spring&amp;SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#Vue2学习" class="nav-link">
+  Vue2学习
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#Vue3学习" class="nav-link">
+  Vue3学习
+</a></li></ul></div></div><div class="nav-item"><a href="/my_blog/项目实战/" class="nav-link">
+  项目实战
+</a></div><div class="nav-item"><a href="/my_blog/知识碎片/" class="nav-link">
+  技术知识
+</a></div><div class="nav-item"><a href="/my_blog/学习路线/" class="nav-link">
+  学习路线
+</a></div><div class="nav-item"><a href="/my_blog/作者/" class="nav-link">
+  作者
+</a></div> <a href="https://github.com/liyupi/codefather" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/my_blog/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="sidebar-link">王豪鸿的笔记</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>408相关</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>后端相关</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/my_blog/maven%E9%AB%98%E7%BA%A7/" class="sidebar-link">Maven高级</a></li><li><a href="/my_blog/mybatisplus/" class="sidebar-link">MyBatisPlus</a></li><li><a href="/my_blog/git%E6%95%99%E7%A8%8B/" class="sidebar-link">git 教程</a></li><li><a href="/my_blog/git%E6%8C%87%E4%BB%A4/" aria-current="page" class="active sidebar-link">Git关键指令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/my_blog/git%E6%8C%87%E4%BB%A4/#基础操作指令" class="sidebar-link">基础操作指令</a></li><li class="sidebar-sub-header"><a href="/my_blog/git%E6%8C%87%E4%BB%A4/#分支" class="sidebar-link">分支</a></li><li class="sidebar-sub-header"><a href="/my_blog/git%E6%8C%87%E4%BB%A4/#远程仓库-gitee" class="sidebar-link">远程仓库——gitee</a></li></ul></li><li><a href="/my_blog/swagger-knife4j/" class="sidebar-link">Swagger&amp;Knife4j</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>小程序开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>课程复习</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>AI知识</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>C语言</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaWeb</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Spring&amp;SpringBoot</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2学习</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue3学习</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="content"><div style="width:100%"><div class="theme-default-content custom-content content__default"><h1 id="git关键指令"><a href="#git关键指令" class="header-anchor">#</a> Git关键指令</h1> <h2 id="基础操作指令"><a href="#基础操作指令" class="header-anchor">#</a> 基础操作指令</h2> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># 初始化当前目录为一个git仓库</span>
+$ <span class="token function">git</span> init
+Initialized empty Git repository <span class="token keyword">in</span> C:/Users/23197/Desktop/git-test1/.git/
+
+
+<span class="token comment"># 初始化完成后当前目录下会多一个.git文件夹</span>
+$ <span class="token function">ls</span> <span class="token parameter variable">-al</span>
+total <span class="token number">16</span>
+drwxr-xr-x <span class="token number">1</span> 荼蘼 <span class="token number">197121</span> <span class="token number">0</span> Sep  <span class="token number">8</span> <span class="token number">21</span>:19 ./
+drwxr-xr-x <span class="token number">1</span> 荼蘼 <span class="token number">197121</span> <span class="token number">0</span> Sep  <span class="token number">8</span> <span class="token number">21</span>:18 <span class="token punctuation">..</span>/
+drwxr-xr-x <span class="token number">1</span> 荼蘼 <span class="token number">197121</span> <span class="token number">0</span> Sep  <span class="token number">8</span> <span class="token number">21</span>:19 .git/
+
+<span class="token comment"># 建立别名步骤，首先在根目录创建.bashrc</span>
+$ <span class="token function">touch</span> ~/.bashrc
+
+<span class="token comment">#在该文件中输入以下内容</span>
+<span class="token function">vi</span> .bashrc
+<span class="token comment"># 用于输出git 提交日志</span>
+<span class="token builtin class-name">alias</span> git-log<span class="token operator">=</span><span class="token string">'git log --pretty=oneline --all --graph --abbrev-commit'</span>
+<span class="token comment"># 用于输出当前目录所有文件及基本信息</span>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">ll</span><span class="token operator">=</span><span class="token string">'ls -al'</span>
+
+<span class="token comment">#最后使其生效</span>
+<span class="token builtin class-name">source</span> ~/.bashrc
+
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><p>Git工作目录下对于文件的修改（增加、删除、更新）会存在几个状态，这些修改的状态会随着我们执行Git的命令而发生变化</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># 如何使用命令控制这些状态之间的转换</span>
+<span class="token comment"># 用命令新建一个txt</span>
+$ <span class="token function">touch</span> file01.txt
+
+<span class="token comment"># 工作区-&gt;暂存区，表示把当前目录下的所有文件放在暂存区</span>
+$ <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+
+<span class="token comment"># 使用查看暂存区命令可以看到file01.txt进入暂存区</span>
+$ <span class="token function">git</span> status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git rm --cached &lt;file&gt;...&quot;</span> to unstage<span class="token punctuation">)</span>
+        new file:   file01.txt
+
+<span class="token comment"># 暂存区-&gt;本地仓库，提交所有暂存区到本地仓库，记得写本次操作别名</span>
+$ <span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">&quot;add file01&quot;</span>
+<span class="token punctuation">[</span>master <span class="token punctuation">(</span>root-commit<span class="token punctuation">)</span> 7bd0fa2<span class="token punctuation">]</span> <span class="token function">add</span> file01
+ <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">0</span> insertions<span class="token punctuation">(</span>+<span class="token punctuation">)</span>, <span class="token number">0</span> deletions<span class="token punctuation">(</span>-<span class="token punctuation">)</span>
+ create mode <span class="token number">100644</span> file01.txt
+ 
+<span class="token comment">#再次使用status命令，发现暂存区clean</span>
+$ <span class="token function">git</span> status
+On branch master
+nothing to commit, working tree clean
+
+<span class="token comment"># 使用log命令查看提交到哪去了</span>
+$ <span class="token function">git</span> log
+commit 7bd0fa2a5688ec63999695d084afe9999d3dc6e8 <span class="token punctuation">(</span>HEAD -<span class="token operator">&gt;</span> master<span class="token punctuation">)</span>
+Author: WHH <span class="token operator">&lt;</span><span class="token number">2319770566</span>@qq.com<span class="token operator">&gt;</span>
+Date:   Fri Sep <span class="token number">8</span> <span class="token number">21</span>:44:09 <span class="token number">2023</span> +0800
+
+    <span class="token function">add</span> file01
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><p>shell语法中：</p> <p>[shift] + [insert] 表示粘贴
+直接选中目标则表示复制
+[ctrl] +[c] 表示结束</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># 表示清除上面的命令</span>
+$ <span class="token function">clear</span>
+
+<span class="token comment"># 表示以一种简洁的形式查看本地仓库内的提交版本</span>
+$ <span class="token function">git</span> log <span class="token parameter variable">--pretty</span><span class="token operator">=</span>oneline --abbrev-commit <span class="token parameter variable">--all</span> <span class="token parameter variable">--graph</span>
+
+<span class="token comment"># 表示查看已经删除的记录</span>
+$ <span class="token function">git</span> reflog
+
+<span class="token comment"># 表示把版本回退到对应的版本号，commitID表示版本号</span>
+$ <span class="token function">git</span> reset <span class="token parameter variable">--hard</span> commitID
+
+<span class="token comment"># 表示生成一个忽略某些文件的规则脚本，具体忽略哪些文件可以进入编辑</span>
+$ <span class="token function">touch</span> .gitignore
+
+<span class="token comment"># 如忽略以a为扩展名的文件</span>
+*.a
+
+<span class="token comment"># 表示删除文件的命令，这里删除.gitignore</span>
+$ <span class="token function">rm</span> <span class="token parameter variable">-rf</span> .gitignore
+$ <span class="token function">rm</span> .gitignore
+
+<span class="token comment"># mv表示剪切文件，如果移动目标地址没有该文件则重命名，Linux经常拿来改名字</span>
+$ <span class="token function">mv</span> .gitingore .gitignore
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h2 id="分支"><a href="#分支" class="header-anchor">#</a> 分支</h2> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># 表示查看分支</span>
+$ <span class="token function">git</span> branch
+
+<span class="token comment"># 表示新建一个分支dev01</span>
+$ <span class="token function">git</span> branch dev01
+
+<span class="token comment"># 表示切换分支，这里切换到dev01</span>
+$ <span class="token function">git</span> checkout dev01
+
+<span class="token comment"># 表示直接创建并切换分支</span>
+$ <span class="token function">git</span> checkout <span class="token parameter variable">-b</span> dev02
+
+<span class="token comment"># 想把什么东西合并到某个分支，先切换到当前分支</span>
+<span class="token comment"># 表示把某分支合并到当前分支</span>
+$ <span class="token function">git</span> merga dev01
+
+<span class="token comment"># 表示删除某分支，不能删除当前分支，-d表示删除时做各种检查，-D表示不做任何检查，直接删除</span>
+$ <span class="token function">git</span> branch <span class="token parameter variable">-d</span> dev02
+$ <span class="token function">git</span> branch <span class="token parameter variable">-D</span> dev02
+
+<span class="token comment"># 发生冲突</span>
+<span class="token comment"># 会提示冲突的文件在哪，直接点开粗暴修改你想要的，修改成希望合并的样子，然后添加到暂存区，提交到本地仓库</span>
+$ <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+$ <span class="token function">git</span> commit
+
+<span class="token comment"># 撤回上一次提交</span>
+$ <span class="token function">git</span> reset <span class="token parameter variable">--hard</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><p>开发中分支使用原则与流程：</p> <p>• master（生产）分支
+线上开发，主分支，中小规模项目作为线上运行的应用对应的分支</p> <p>• develop（开发）分支
+是从master创建的分支，一般作为开发部门的主要开发分支，如果没有其他并行开发不同期上线要求，都可以在此版本进行开发，阶段开发完成后，需要是合并到master分支，准备上线</p> <p>• feature/xxxx分支
+从develop层创建的分支，一般是同期并行开发，但不同期上线时创建的分支，分支上的研发任务完成后合并到develop分支</p> <p>• hotfix/xxxx分支
+从master派生的分支，一般作为线上bug修复使用，修复完成后需要合并到master、test、develop分支。</p> <p>• 还有一些其他分支，在此不再赘述，例如test分支（用于代码测试）、pre分支（预上线分支）等等</p> <p><img alt="image-20230909095351358" data-src="https://whhobs.obs.cn-south-1.myhuaweicloud.com/img/image-20230909095351358.png" loading="lazy" class="lazy"></p> <h2 id="远程仓库-gitee"><a href="#远程仓库-gitee" class="header-anchor">#</a> 远程仓库——gitee</h2> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># 表示连接远程仓库，origin表示别名，后跟地址（复制）</span>
+$ <span class="token function">git</span> remote <span class="token function">add</span> origin git@gitee.com:wang-haohong/git-test01.git
+
+<span class="token comment"># 查看远程仓库</span>
+$ <span class="token function">git</span> remote
+
+<span class="token comment"># 表示把本地仓库推到远程仓库上，master可以换为其他分支</span>
+$ <span class="token function">git</span> push origin master
+
+<span class="token comment"># 推送到远程仓库命令详解</span>
+<span class="token comment"># -f表示强制覆盖</span>
+<span class="token comment"># --set-upstream</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>-f<span class="token punctuation">]</span> <span class="token punctuation">[</span>--set-upstream<span class="token punctuation">]</span> <span class="token punctuation">[</span>远端名称<span class="token punctuation">[</span>本地分支名<span class="token punctuation">]</span><span class="token punctuation">[</span>:远端分支名<span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 表示把本地的master推到远程仓库origin，--set-upstream推送到远端的同时并且建立起和远端分支的关联关系，下次直接push即可</span>
+$ <span class="token function">git</span> push --set-upstream origin master:master
+
+<span class="token comment"># 表示查看更为详细的分支</span>
+$ <span class="token function">git</span> branch <span class="token parameter variable">-vv</span>
+
+<span class="token comment"># 表示从远程仓库克隆代码到本地，后不加别名则以链接最后的文件名为名字</span>
+$ <span class="token function">git</span> clone git@gitee.com:wang-haohong/git-test01.git
+
+<span class="token comment"># 抓取指令，把仓库的更新抓取到本地但不会进行合并</span>
+$ <span class="token function">git</span> fetch <span class="token punctuation">[</span>remote name<span class="token punctuation">]</span> <span class="token punctuation">[</span>branch name<span class="token punctuation">]</span>
+
+<span class="token comment"># 合并远程分支到本地</span>
+$ <span class="token function">git</span> merge origin/master
+
+<span class="token comment"># 拉取指令就是将远端仓库的修改拉到本地并自动进行合并，等同于fetch+merge，如果不指定远端名称和分支名，则抓取所有并更新当前分支</span>
+$ <span class="token function">git</span> pull <span class="token punctuation">[</span>remote name<span class="token punctuation">]</span> <span class="token punctuation">[</span>branch name<span class="token punctuation">]</span>
+
+
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div></div> <footer class="page-edit" style="margin:0;"><div class="edit-link"><a href="https://github.com/liyupi/codefather/edit/master/学习笔记/后端相关/Git指令.md" target="_blank" rel="noopener noreferrer">完善页面</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <!----></div> <div class="toc-container-sidebar"><div class="pos-box"><div class="icon-arrow"></div> <div class="scroll-box" style="max-height:86vh"><div style="font-weight:bold;">Git关键指令</div> <hr> <div class="toc-box"><ul class="toc-sidebar-links"><li><a href="/my_blog/git%E6%8C%87%E4%BB%A4/#基础操作指令" class="toc-sidebar-link">基础操作指令</a><ul class="toc-sidebar-sub-headers"></ul></li><li><a href="/my_blog/git%E6%8C%87%E4%BB%A4/#分支" class="toc-sidebar-link">分支</a><ul class="toc-sidebar-sub-headers"></ul></li><li><a href="/my_blog/git%E6%8C%87%E4%BB%A4/#远程仓库-gitee" class="toc-sidebar-link">远程仓库——gitee</a><ul class="toc-sidebar-sub-headers"></ul></li></ul></div></div></div></div></div>  <main class="footer"> <div class="copy-right"><span class="name"> whh   |     </span> <a target="_blank" rel="noreferrer">
+          
+        </a></div></main></main> <aside class="page-sidebar"> <div class="page-side-toolbar"></div>  </aside></div><div class="global-ui"><!----></div></div>
+    <script src="/my_blog/assets/js/app.635dd26a.js" defer></script><script src="/my_blog/assets/js/2.8c322ccd.js" defer></script><script src="/my_blog/assets/js/65.193dfc9c.js" defer></script>
+  </body>
+</html>

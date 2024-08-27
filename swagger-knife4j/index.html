@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Swagger&amp;Knife4j | 王豪鸿的个人博客</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js">
+    <link rel="icon" href="/my_blog/favicon.ico">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?2675818a983a3131404cee835018f016";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      </script>
+    <meta name="description" content="贴心的编程学习路线，全面的编程知识百科">
+    <meta property="og:site_name" content="王豪鸿的个人博客">
+    <meta property="og:title" content="Swagger&amp;Knife4j">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://codefather.cn/swagger-knife4j/">
+    <meta name="twitter:title" content="Swagger&amp;Knife4j">
+    <meta name="twitter:url" content="https://codefather.cn/swagger-knife4j/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="程序员, 编程, 计算机">
+    <meta property="article:tag" content="程序员">
+    <meta name="keywords" content="程序员鱼皮, 编程学习路线, 编程知识百科, Java, 编程导航, 前端, 开发, 编程分享, 项目, IT, 求职, 面经">
+    
+    <link rel="preload" href="/my_blog/assets/css/0.styles.cc14dc2f.css" as="style"><link rel="preload" href="/my_blog/assets/js/app.635dd26a.js" as="script"><link rel="preload" href="/my_blog/assets/js/2.8c322ccd.js" as="script"><link rel="preload" href="/my_blog/assets/js/69.20dc7b82.js" as="script"><link rel="prefetch" href="/my_blog/assets/js/1.772e8449.js"><link rel="prefetch" href="/my_blog/assets/js/10.d9532d8f.js"><link rel="prefetch" href="/my_blog/assets/js/100.7f496a5e.js"><link rel="prefetch" href="/my_blog/assets/js/101.20d75d4e.js"><link rel="prefetch" href="/my_blog/assets/js/102.a41fef88.js"><link rel="prefetch" href="/my_blog/assets/js/103.87dc1aae.js"><link rel="prefetch" href="/my_blog/assets/js/104.a09771c6.js"><link rel="prefetch" href="/my_blog/assets/js/105.0e53ddf7.js"><link rel="prefetch" href="/my_blog/assets/js/106.6e7ebe50.js"><link rel="prefetch" href="/my_blog/assets/js/107.38d6c9ee.js"><link rel="prefetch" href="/my_blog/assets/js/108.e25593e5.js"><link rel="prefetch" href="/my_blog/assets/js/109.4e601682.js"><link rel="prefetch" href="/my_blog/assets/js/11.2f89b5eb.js"><link rel="prefetch" href="/my_blog/assets/js/110.60c5074b.js"><link rel="prefetch" href="/my_blog/assets/js/111.78017585.js"><link rel="prefetch" href="/my_blog/assets/js/112.96c75f49.js"><link rel="prefetch" href="/my_blog/assets/js/113.d4637c3f.js"><link rel="prefetch" href="/my_blog/assets/js/114.f76b764a.js"><link rel="prefetch" href="/my_blog/assets/js/115.447cdfd3.js"><link rel="prefetch" href="/my_blog/assets/js/116.9d5d3385.js"><link rel="prefetch" href="/my_blog/assets/js/117.c8683949.js"><link rel="prefetch" href="/my_blog/assets/js/118.687118e2.js"><link rel="prefetch" href="/my_blog/assets/js/119.6ce8ec85.js"><link rel="prefetch" href="/my_blog/assets/js/12.f03f0230.js"><link rel="prefetch" href="/my_blog/assets/js/120.fa48d833.js"><link rel="prefetch" href="/my_blog/assets/js/121.956c783d.js"><link rel="prefetch" href="/my_blog/assets/js/122.cafe4404.js"><link rel="prefetch" href="/my_blog/assets/js/123.22c3f590.js"><link rel="prefetch" href="/my_blog/assets/js/124.d816da2d.js"><link rel="prefetch" href="/my_blog/assets/js/125.fdd5b37d.js"><link rel="prefetch" href="/my_blog/assets/js/126.aeda75bb.js"><link rel="prefetch" href="/my_blog/assets/js/127.bf3b4c45.js"><link rel="prefetch" href="/my_blog/assets/js/128.23f648fd.js"><link rel="prefetch" href="/my_blog/assets/js/129.45ee3e2c.js"><link rel="prefetch" href="/my_blog/assets/js/13.52940164.js"><link rel="prefetch" href="/my_blog/assets/js/130.c9475b55.js"><link rel="prefetch" href="/my_blog/assets/js/131.d2853cf3.js"><link rel="prefetch" href="/my_blog/assets/js/132.0a4786ae.js"><link rel="prefetch" href="/my_blog/assets/js/133.1a340322.js"><link rel="prefetch" href="/my_blog/assets/js/134.892ca72c.js"><link rel="prefetch" href="/my_blog/assets/js/135.7df04a85.js"><link rel="prefetch" href="/my_blog/assets/js/136.293d1f17.js"><link rel="prefetch" href="/my_blog/assets/js/137.ef6d9e7a.js"><link rel="prefetch" href="/my_blog/assets/js/138.b5dff5fc.js"><link rel="prefetch" href="/my_blog/assets/js/139.5a4f2a98.js"><link rel="prefetch" href="/my_blog/assets/js/14.ade1e74d.js"><link rel="prefetch" href="/my_blog/assets/js/140.869f6784.js"><link rel="prefetch" href="/my_blog/assets/js/141.65c84fa0.js"><link rel="prefetch" href="/my_blog/assets/js/142.1998d8d4.js"><link rel="prefetch" href="/my_blog/assets/js/143.efae150a.js"><link rel="prefetch" href="/my_blog/assets/js/144.64925202.js"><link rel="prefetch" href="/my_blog/assets/js/145.3f77074c.js"><link rel="prefetch" href="/my_blog/assets/js/146.cfa3c288.js"><link rel="prefetch" href="/my_blog/assets/js/147.80fb2b19.js"><link rel="prefetch" href="/my_blog/assets/js/148.ec7b1938.js"><link rel="prefetch" href="/my_blog/assets/js/149.dcb3a37a.js"><link rel="prefetch" href="/my_blog/assets/js/15.970a8ca5.js"><link rel="prefetch" href="/my_blog/assets/js/150.08cb63f6.js"><link rel="prefetch" href="/my_blog/assets/js/151.5d70b236.js"><link rel="prefetch" href="/my_blog/assets/js/152.dddff763.js"><link rel="prefetch" href="/my_blog/assets/js/153.66a5dab1.js"><link rel="prefetch" href="/my_blog/assets/js/154.7c6c2476.js"><link rel="prefetch" href="/my_blog/assets/js/155.6e98a6ab.js"><link rel="prefetch" href="/my_blog/assets/js/156.46483400.js"><link rel="prefetch" href="/my_blog/assets/js/157.3c1ede39.js"><link rel="prefetch" href="/my_blog/assets/js/158.be691a46.js"><link rel="prefetch" href="/my_blog/assets/js/159.0b6d9989.js"><link rel="prefetch" href="/my_blog/assets/js/16.ff971500.js"><link rel="prefetch" href="/my_blog/assets/js/160.971174fe.js"><link rel="prefetch" href="/my_blog/assets/js/161.17a5abe8.js"><link rel="prefetch" href="/my_blog/assets/js/162.80ac8118.js"><link rel="prefetch" href="/my_blog/assets/js/163.bdd662af.js"><link rel="prefetch" href="/my_blog/assets/js/164.896e9db5.js"><link rel="prefetch" href="/my_blog/assets/js/165.e5354833.js"><link rel="prefetch" href="/my_blog/assets/js/166.051e8511.js"><link rel="prefetch" href="/my_blog/assets/js/167.8d230ad6.js"><link rel="prefetch" href="/my_blog/assets/js/168.56120141.js"><link rel="prefetch" href="/my_blog/assets/js/169.4d027f04.js"><link rel="prefetch" href="/my_blog/assets/js/17.4b045b26.js"><link rel="prefetch" href="/my_blog/assets/js/170.70abf7bb.js"><link rel="prefetch" href="/my_blog/assets/js/171.49f0fe10.js"><link rel="prefetch" href="/my_blog/assets/js/172.e278b1de.js"><link rel="prefetch" href="/my_blog/assets/js/173.001ea5ca.js"><link rel="prefetch" href="/my_blog/assets/js/174.1e600aa9.js"><link rel="prefetch" href="/my_blog/assets/js/175.8517fbe7.js"><link rel="prefetch" href="/my_blog/assets/js/176.d6a0de4c.js"><link rel="prefetch" href="/my_blog/assets/js/177.5ff4a06f.js"><link rel="prefetch" href="/my_blog/assets/js/178.4bf51de9.js"><link rel="prefetch" href="/my_blog/assets/js/179.81a72fcf.js"><link rel="prefetch" href="/my_blog/assets/js/18.d0f0bd51.js"><link rel="prefetch" href="/my_blog/assets/js/180.a5f7855b.js"><link rel="prefetch" href="/my_blog/assets/js/181.6ed81a04.js"><link rel="prefetch" href="/my_blog/assets/js/182.200607d2.js"><link rel="prefetch" href="/my_blog/assets/js/183.012650d7.js"><link rel="prefetch" href="/my_blog/assets/js/184.fa2f8f2d.js"><link rel="prefetch" href="/my_blog/assets/js/185.f98684ec.js"><link rel="prefetch" href="/my_blog/assets/js/186.3a121541.js"><link rel="prefetch" href="/my_blog/assets/js/187.db3d1ff9.js"><link rel="prefetch" href="/my_blog/assets/js/188.e696e8cd.js"><link rel="prefetch" href="/my_blog/assets/js/189.ba5c9f0d.js"><link rel="prefetch" href="/my_blog/assets/js/19.5740e4d6.js"><link rel="prefetch" href="/my_blog/assets/js/190.0d5ec908.js"><link rel="prefetch" href="/my_blog/assets/js/191.622ad6a0.js"><link rel="prefetch" href="/my_blog/assets/js/192.457e0d8f.js"><link rel="prefetch" href="/my_blog/assets/js/193.e6d2508f.js"><link rel="prefetch" href="/my_blog/assets/js/194.842ffb8d.js"><link rel="prefetch" href="/my_blog/assets/js/195.e4ddcdb0.js"><link rel="prefetch" href="/my_blog/assets/js/196.7c177169.js"><link rel="prefetch" href="/my_blog/assets/js/197.bc8c3a0f.js"><link rel="prefetch" href="/my_blog/assets/js/198.a4ff29cb.js"><link rel="prefetch" href="/my_blog/assets/js/199.872babb0.js"><link rel="prefetch" href="/my_blog/assets/js/20.8885a4fa.js"><link rel="prefetch" href="/my_blog/assets/js/200.2c7c7511.js"><link rel="prefetch" href="/my_blog/assets/js/201.67a1b971.js"><link rel="prefetch" href="/my_blog/assets/js/202.f1672012.js"><link rel="prefetch" href="/my_blog/assets/js/203.6f579360.js"><link rel="prefetch" href="/my_blog/assets/js/204.9ea95b93.js"><link rel="prefetch" href="/my_blog/assets/js/205.9a4700a2.js"><link rel="prefetch" href="/my_blog/assets/js/21.0bb62db4.js"><link rel="prefetch" href="/my_blog/assets/js/22.3e8347a6.js"><link rel="prefetch" href="/my_blog/assets/js/23.ceb5a5ff.js"><link rel="prefetch" href="/my_blog/assets/js/24.5bc56ac4.js"><link rel="prefetch" href="/my_blog/assets/js/25.15e1f641.js"><link rel="prefetch" href="/my_blog/assets/js/26.35b2bbdc.js"><link rel="prefetch" href="/my_blog/assets/js/27.4dc8b9ac.js"><link rel="prefetch" href="/my_blog/assets/js/28.4af8f80c.js"><link rel="prefetch" href="/my_blog/assets/js/29.67ed3789.js"><link rel="prefetch" href="/my_blog/assets/js/3.4dc033c7.js"><link rel="prefetch" href="/my_blog/assets/js/30.ae2784fd.js"><link rel="prefetch" href="/my_blog/assets/js/31.79fc4cca.js"><link rel="prefetch" href="/my_blog/assets/js/32.34ba096a.js"><link rel="prefetch" href="/my_blog/assets/js/33.ff97c22d.js"><link rel="prefetch" href="/my_blog/assets/js/34.0c16964d.js"><link rel="prefetch" href="/my_blog/assets/js/35.2f3dfc25.js"><link rel="prefetch" href="/my_blog/assets/js/36.21513e30.js"><link rel="prefetch" href="/my_blog/assets/js/37.1ade0b6b.js"><link rel="prefetch" href="/my_blog/assets/js/38.a53d9aa2.js"><link rel="prefetch" href="/my_blog/assets/js/39.91d0314d.js"><link rel="prefetch" href="/my_blog/assets/js/4.2f502b73.js"><link rel="prefetch" href="/my_blog/assets/js/40.6ffc2f2f.js"><link rel="prefetch" href="/my_blog/assets/js/41.5c741871.js"><link rel="prefetch" href="/my_blog/assets/js/42.0622d880.js"><link rel="prefetch" href="/my_blog/assets/js/43.2dbf1a05.js"><link rel="prefetch" href="/my_blog/assets/js/44.ae188fd5.js"><link rel="prefetch" href="/my_blog/assets/js/45.6aaf491b.js"><link rel="prefetch" href="/my_blog/assets/js/46.26a7558c.js"><link rel="prefetch" href="/my_blog/assets/js/47.a85fd1c7.js"><link rel="prefetch" href="/my_blog/assets/js/48.84c0525f.js"><link rel="prefetch" href="/my_blog/assets/js/49.6ca5e036.js"><link rel="prefetch" href="/my_blog/assets/js/5.7b1f056c.js"><link rel="prefetch" href="/my_blog/assets/js/50.384dc640.js"><link rel="prefetch" href="/my_blog/assets/js/51.32b7f05c.js"><link rel="prefetch" href="/my_blog/assets/js/52.bad7c0ce.js"><link rel="prefetch" href="/my_blog/assets/js/53.9b447cff.js"><link rel="prefetch" href="/my_blog/assets/js/54.0c7dda5f.js"><link rel="prefetch" href="/my_blog/assets/js/55.4c6dc400.js"><link rel="prefetch" href="/my_blog/assets/js/56.b6408150.js"><link rel="prefetch" href="/my_blog/assets/js/57.217d8e70.js"><link rel="prefetch" href="/my_blog/assets/js/58.81b706d7.js"><link rel="prefetch" href="/my_blog/assets/js/59.66988ac4.js"><link rel="prefetch" href="/my_blog/assets/js/6.056886f1.js"><link rel="prefetch" href="/my_blog/assets/js/60.c8b9f2dd.js"><link rel="prefetch" href="/my_blog/assets/js/61.933d6bc2.js"><link rel="prefetch" href="/my_blog/assets/js/62.284fe6dc.js"><link rel="prefetch" href="/my_blog/assets/js/63.6ae39b81.js"><link rel="prefetch" href="/my_blog/assets/js/64.c41b8c3e.js"><link rel="prefetch" href="/my_blog/assets/js/65.193dfc9c.js"><link rel="prefetch" href="/my_blog/assets/js/66.637444b0.js"><link rel="prefetch" href="/my_blog/assets/js/67.2a3522be.js"><link rel="prefetch" href="/my_blog/assets/js/68.faeeac3e.js"><link rel="prefetch" href="/my_blog/assets/js/7.a96cecf9.js"><link rel="prefetch" href="/my_blog/assets/js/70.da36114b.js"><link rel="prefetch" href="/my_blog/assets/js/71.6fbd8e70.js"><link rel="prefetch" href="/my_blog/assets/js/72.c568b0f5.js"><link rel="prefetch" href="/my_blog/assets/js/73.713060cb.js"><link rel="prefetch" href="/my_blog/assets/js/74.5d59f502.js"><link rel="prefetch" href="/my_blog/assets/js/75.f9f0e2db.js"><link rel="prefetch" href="/my_blog/assets/js/76.9ba26d3e.js"><link rel="prefetch" href="/my_blog/assets/js/77.aabf7684.js"><link rel="prefetch" href="/my_blog/assets/js/78.4b0dd6f9.js"><link rel="prefetch" href="/my_blog/assets/js/79.752cd1f0.js"><link rel="prefetch" href="/my_blog/assets/js/80.85b1b643.js"><link rel="prefetch" href="/my_blog/assets/js/81.3c598aba.js"><link rel="prefetch" href="/my_blog/assets/js/82.9d699c63.js"><link rel="prefetch" href="/my_blog/assets/js/83.93a6435f.js"><link rel="prefetch" href="/my_blog/assets/js/84.3b3afd32.js"><link rel="prefetch" href="/my_blog/assets/js/85.a3d25dc8.js"><link rel="prefetch" href="/my_blog/assets/js/86.f6f12160.js"><link rel="prefetch" href="/my_blog/assets/js/87.363996a0.js"><link rel="prefetch" href="/my_blog/assets/js/88.be742599.js"><link rel="prefetch" href="/my_blog/assets/js/89.7772dc30.js"><link rel="prefetch" href="/my_blog/assets/js/90.0911110b.js"><link rel="prefetch" href="/my_blog/assets/js/91.bef042a5.js"><link rel="prefetch" href="/my_blog/assets/js/92.b0acba51.js"><link rel="prefetch" href="/my_blog/assets/js/93.5abf03c5.js"><link rel="prefetch" href="/my_blog/assets/js/94.0d0e3aed.js"><link rel="prefetch" href="/my_blog/assets/js/95.058d6fb6.js"><link rel="prefetch" href="/my_blog/assets/js/96.cb258da8.js"><link rel="prefetch" href="/my_blog/assets/js/97.ff426b0d.js"><link rel="prefetch" href="/my_blog/assets/js/98.8554c306.js"><link rel="prefetch" href="/my_blog/assets/js/99.89385204.js"><link rel="prefetch" href="/my_blog/assets/js/vendors~docsearch.9f962556.js">
+    <link rel="stylesheet" href="/my_blog/assets/css/0.styles.cc14dc2f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/my_blog/" class="home-link router-link-active"><img src="/my_blog/logo.png" alt="王豪鸿的个人博客" class="logo"> <span class="site-name can-hide">王豪鸿的个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/my_blog/个人简历/" class="nav-link">
+  个人简历
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习笔记" class="dropdown-title"><span class="title">学习笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="学习笔记" class="mobile-dropdown-title"><span class="title">学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#后端相关" class="nav-link">
+  后端相关
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#前端开发" class="nav-link">
+  前端开发
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#408相关" class="nav-link">
+  408相关
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#小程序开发" class="nav-link">
+  小程序开发
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#专业课" class="nav-link">
+  专业课
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#AI知识" class="nav-link">
+  AI知识
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#C语言" class="nav-link">
+  C语言
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#JavaWeb" class="nav-link">
+  JavaWeb
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#Spring&amp;SpringBoot" class="nav-link">
+  Spring&amp;SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#Vue2学习" class="nav-link">
+  Vue2学习
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#Vue3学习" class="nav-link">
+  Vue3学习
+</a></li></ul></div></div><div class="nav-item"><a href="/my_blog/项目实战/" class="nav-link">
+  项目实战
+</a></div><div class="nav-item"><a href="/my_blog/知识碎片/" class="nav-link">
+  技术知识
+</a></div><div class="nav-item"><a href="/my_blog/学习路线/" class="nav-link">
+  学习路线
+</a></div><div class="nav-item"><a href="/my_blog/作者/" class="nav-link">
+  作者
+</a></div> <a href="https://github.com/liyupi/codefather" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/my_blog/个人简历/" class="nav-link">
+  个人简历
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习笔记" class="dropdown-title"><span class="title">学习笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="学习笔记" class="mobile-dropdown-title"><span class="title">学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#后端相关" class="nav-link">
+  后端相关
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#前端开发" class="nav-link">
+  前端开发
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#408相关" class="nav-link">
+  408相关
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#小程序开发" class="nav-link">
+  小程序开发
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#专业课" class="nav-link">
+  专业课
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#AI知识" class="nav-link">
+  AI知识
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#C语言" class="nav-link">
+  C语言
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#JavaWeb" class="nav-link">
+  JavaWeb
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#Spring&amp;SpringBoot" class="nav-link">
+  Spring&amp;SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#Vue2学习" class="nav-link">
+  Vue2学习
+</a></li><li class="dropdown-item"><!----> <a href="/my_blog/学习笔记/#Vue3学习" class="nav-link">
+  Vue3学习
+</a></li></ul></div></div><div class="nav-item"><a href="/my_blog/项目实战/" class="nav-link">
+  项目实战
+</a></div><div class="nav-item"><a href="/my_blog/知识碎片/" class="nav-link">
+  技术知识
+</a></div><div class="nav-item"><a href="/my_blog/学习路线/" class="nav-link">
+  学习路线
+</a></div><div class="nav-item"><a href="/my_blog/作者/" class="nav-link">
+  作者
+</a></div> <a href="https://github.com/liyupi/codefather" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/my_blog/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="sidebar-link">王豪鸿的笔记</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>408相关</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>后端相关</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/my_blog/maven%E9%AB%98%E7%BA%A7/" class="sidebar-link">Maven高级</a></li><li><a href="/my_blog/mybatisplus/" class="sidebar-link">MyBatisPlus</a></li><li><a href="/my_blog/git%E6%95%99%E7%A8%8B/" class="sidebar-link">git 教程</a></li><li><a href="/my_blog/git%E6%8C%87%E4%BB%A4/" class="sidebar-link">Git关键指令</a></li><li><a href="/my_blog/swagger-knife4j/" aria-current="page" class="active sidebar-link">Swagger&amp;Knife4j</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/my_blog/swagger-knife4j/#一-、准备" class="sidebar-link">（一）、准备</a></li><li class="sidebar-sub-header"><a href="/my_blog/swagger-knife4j/#二-、swagger" class="sidebar-link">（二）、Swagger</a></li><li class="sidebar-sub-header"><a href="/my_blog/swagger-knife4j/#三-、knife4j" class="sidebar-link">（三）、Knife4j</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>小程序开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>课程复习</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>AI知识</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>C语言</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaWeb</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Spring&amp;SpringBoot</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2学习</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue3学习</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="content"><div style="width:100%"><div class="theme-default-content custom-content content__default"><h1 id="swagger-knife4j"><a href="#swagger-knife4j" class="header-anchor">#</a> Swagger&amp;Knife4j</h1> <h2 id="一-、准备"><a href="#一-、准备" class="header-anchor">#</a> （一）、准备</h2> <h4 id="_1、springboot项目"><a href="#_1、springboot项目" class="header-anchor">#</a> 1、SpringBoot项目</h4> <p>说明：前后端分离前提下，前端是一个独立项目，因此该SpringBoot无需添加Thymeleaf依赖！</p> <h4 id="_2、vo类"><a href="#_2、vo类" class="header-anchor">#</a> 2、vo类</h4> <p>Employee类：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>package com.soft.vo;
+
+import java.util.Date;
+
+public class Employee {
+    private String id;//主键
+    private String userName;//用户名
+    private String password;//密码
+    private String realName;//姓名
+    private String nationId;//民族id
+    private int role;//角色 1-管理员 2-普通员工
+    private int status;//在职状态 1-试用 2-在职 3-离职
+    private String mobile;//手机号
+    private String address;//家庭地址
+    private Date createTime;//创建时间
+    private Date updateTime;//修改时间
+
+    ...省略setter和getter
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>Nation类：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>package com.soft.vo;
+
+import java.util.Date;
+
+public class Nation {
+
+    private String id;//主键
+    private int level;//级别
+    private String name;//名称
+    private Date createTime;//创建时间
+    private Date updateTime;//修改时间
+    
+    public Nation(String id, int level, String name, Date createTime, Date updateTime) {
+        this.id = id;
+        this.level = level;
+        this.name = name;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+    }
+    
+    ...省略setter和getter
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><h4 id="_3、controller类"><a href="#_3、controller类" class="header-anchor">#</a> 3、controller类</h4> <p>EmployeeController类：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>package com.soft.employee;
+
+import com.soft.vo.Employee;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+@RestController
+@RequestMapping(&quot;/employee&quot;)
+public class EmployeeController {
+
+    @RequestMapping(&quot;/save.do&quot;)
+    public Map&lt;String,Object&gt; save(Employee employee){
+        Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+        if(true) {
+            map.put(&quot;status&quot;, &quot;1&quot;);
+            map.put(&quot;message&quot;, &quot;添加成功&quot;);
+        }else{
+            map.put(&quot;status&quot;, &quot;-1&quot;);
+            map.put(&quot;message&quot;, &quot;添加失败&quot;);
+        }
+        return map;
+    }
+    
+    @RequestMapping(&quot;/get.do&quot;)
+    public Employee get(String id){
+        Employee employee = new Employee();
+        employee.setId(UUID.randomUUID().toString());
+        employee.setUserName(&quot;admin&quot;);
+        employee.setPassword(&quot;123456&quot;);
+        employee.setRealName(&quot;胡胜华&quot;);
+        employee.setNationId(&quot;b69d81bb-4ac1-11ed-b98f-68f7287a2222&quot;);
+        employee.setRole(1);
+        employee.setStatus(2);
+        employee.setMobile(&quot;17738290086&quot;);
+        employee.setAddress(&quot;河南郑州高新技术开发区&quot;);
+        employee.setCreateTime(new Date());
+        employee.setUpdateTime(new Date());
+    
+        return employee;
+    }
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br></div></div><p>NationController类</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>package com.soft.nation;
+
+import com.soft.vo.Nation;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.*;
+
+@RestController
+@RequestMapping(&quot;/nation&quot;)
+public class NationController {
+
+    @ApiOperation(&quot;根据民族名称分页查询民族信息&quot;)
+    @GetMapping(&quot;/page.do&quot;)
+    public List&lt;Nation&gt; page(String name, int pageNo){
+        List&lt;Nation&gt; list = new ArrayList&lt;&gt;();
+        Nation nation = new Nation(&quot;b69d81bb-4ac1-11ed-b98f-68f7287a2222&quot;,1,&quot;汉族&quot;,new Date(),new Date());
+        list.add(nation);
+        nation = new Nation(&quot;355745c2-1a29-48e3-933f-d7366ef0728d&quot;,2,&quot;维吾尔族&quot;,new Date(),new Date());
+        list.add(nation);
+        nation = new Nation(&quot;1a62d852-c777-407d-801e-d48ae0fc044c&quot;,3,&quot;蒙古族&quot;,new Date(),new Date());
+        list.add(nation);
+        return list;
+    }
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><h2 id="二-、swagger"><a href="#二-、swagger" class="header-anchor">#</a> （二）、Swagger</h2> <h4 id="_1、简介"><a href="#_1、简介" class="header-anchor">#</a> 1、简介</h4> <p>Swagger是世界上最流行的API框架；支持多种语言 （如：Java，PHP等）；自动生成Restful Api 文档，可以在线测试后台API程序</p> <p>官网地址：https://swagger.io/</p> <h4 id="_2、作用"><a href="#_2、作用" class="header-anchor">#</a> 2、作用</h4> <p>前后端分离架构下，前端工程师通过Swagger实时跟踪后端程序最新API，这大大缩短了前后端工程师沟通成本，提高了开发效率！</p> <h4 id="_3、注解"><a href="#_3、注解" class="header-anchor">#</a> 3、注解</h4> <p>Swagger注解很多，这里仅总结常用注解。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>注解	说明
+@Api(tags = “xxx模块说明”)	作用在模块类上
+@ApiParam(“xxx参数说明”)	作用在参数、方法和字段上，required为true表示必传参数
+@ApiModel(“xxxPOJO说明”)	作用在模型类上
+@ApiOperation(“xxx接口说明”)	作用在接口方法上
+@ApiModelProperty(value = “xxx属性说明”, hidden = true)	作用在类方法和属性上，hidden为true可以隐藏该属性，required为true表示添加或修改数据时必填参数
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h4 id="_4、实战"><a href="#_4、实战" class="header-anchor">#</a> 4、实战</h4> <h5 id="_4-1、依赖"><a href="#_4-1、依赖" class="header-anchor">#</a> 4.1、依赖</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;dependency&gt;
+    &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;
+    &lt;version&gt;2.9.2&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;
+    &lt;version&gt;2.9.2&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.swagger&lt;/groupId&gt;
+    &lt;artifactId&gt;swagger-annotations&lt;/artifactId&gt;
+    &lt;version&gt;1.5.22&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.swagger&lt;/groupId&gt;
+    &lt;artifactId&gt;swagger-models&lt;/artifactId&gt;
+    &lt;version&gt;1.5.22&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h5 id="_4-2、开启支持"><a href="#_4-2、开启支持" class="header-anchor">#</a> 4.2、开启支持</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>package com.soft;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@EnableSwagger2 //开启Swagger2
+@SpringBootApplication
+public class DubheApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(DubheApplication.class, args);
+    }
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h5 id="_4-3、vo类"><a href="#_4-3、vo类" class="header-anchor">#</a> 4.3、vo类</h5> <p>Employee类：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>package com.soft.vo;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import java.util.Date;
+
+@ApiModel(&quot;员工实体类&quot;)//该实体类须被某个Controller类中的handler方法使用，要么作为方法参数，要么作为方法返回值。
+public class Employee {
+
+    @ApiModelProperty(&quot;主键&quot;)
+    private String id;
+    @ApiModelProperty(&quot;用户名&quot;)
+    private String userName;
+    @ApiModelProperty(value=&quot;密码&quot;,hidden = true)
+    private String password;
+    @ApiModelProperty(value=&quot;姓名&quot;,required=true)
+    private String realName;
+    @ApiModelProperty(&quot;民族id&quot;)
+    private String nationId;
+    @ApiModelProperty(&quot;角色 1-管理员 2-普通员工&quot;)
+    private int role;
+    @ApiModelProperty(&quot;在职状态 1-试用 2-在职 3-离职&quot;)
+    private int status;
+    @ApiModelProperty(&quot;手机号&quot;)
+    private String mobile;
+    @ApiModelProperty(&quot;家庭地址&quot;)
+    private String address;
+    @ApiModelProperty(&quot;创建时间&quot;)
+    private Date createTime;
+    @ApiModelProperty(&quot;修改时间&quot;)
+    private Date updateTime;
+    
+    ...省略getter和setter...
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><p>Nation类：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>package com.soft.vo;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import java.util.Date;
+
+@ApiModel(&quot;民族实体类&quot;)
+public class Nation {
+
+    @ApiModelProperty(&quot;主键&quot;)
+    private String id;
+    @ApiModelProperty(&quot;级别&quot;)
+    private int level;
+    @ApiModelProperty(&quot;名称&quot;)
+    private String name;
+    @ApiModelProperty(&quot;创建时间&quot;)
+    private Date createTime;
+    @ApiModelProperty(&quot;修改时间&quot;)
+    private Date updateTime;
+    
+    public Nation(String id, int level, String name, Date createTime, Date updateTime) {
+        this.id = id;
+        this.level = level;
+        this.name = name;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+    }
+    
+    ...省略getter和setter...
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><h5 id="_4-4、controller类"><a href="#_4-4、controller类" class="header-anchor">#</a> 4.4、controller类</h5> <p>EmployeeController类：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>package com.soft.employee;
+
+import com.soft.vo.Employee;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+@RestController
+@RequestMapping(&quot;/employee&quot;)
+public class EmployeeController {
+
+
+    @PostMapping(&quot;/save.do&quot;)//推荐使用@GetMapping、@PostMapping、@PutMapping和@DeleteMapping；如果使用@RequestMapping，则必须指定其method属性（如@RequestMapping(value = &quot;/save.do&quot;,method = RequestMethod.POST)），否则Swagger将生成其它请求类型的文档说明
+    @ApiOperation(&quot;保存员工信息，返回Map集合，key有status和message&quot;)
+    public Map&lt;String,Object&gt; save(Employee employee){
+        Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+        if(true) {
+            map.put(&quot;status&quot;, &quot;1&quot;);
+            map.put(&quot;message&quot;, &quot;添加成功&quot;);
+        }else{
+            map.put(&quot;status&quot;, &quot;-1&quot;);
+            map.put(&quot;message&quot;, &quot;添加失败&quot;);
+        }
+        return map;
+    }
+    
+    @GetMapping(&quot;/get.do&quot;)
+    @ApiOperation(&quot;获取某个员工信息&quot;)
+    public Employee get(@ApiParam(value=&quot;员工id&quot;, required = true) String id){
+        Employee employee = new Employee();
+        employee.setId(UUID.randomUUID().toString());
+        employee.setUserName(&quot;admin&quot;);
+        employee.setPassword(&quot;123456&quot;);
+        employee.setRealName(&quot;胡胜华&quot;);
+        employee.setNationId(&quot;b69d81bb-4ac1-11ed-b98f-68f7287a2222&quot;);
+        employee.setRole(1);
+        employee.setStatus(2);
+        employee.setMobile(&quot;17738290086&quot;);
+        employee.setAddress(&quot;河南郑州高新技术开发区&quot;);
+        employee.setCreateTime(new Date());
+        employee.setUpdateTime(new Date());
+    
+        return employee;
+    }
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br></div></div><p>NationController类</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>package com.soft.nation;
+
+import com.soft.vo.Nation;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.*;
+
+@RestController
+@RequestMapping(&quot;/nation&quot;)
+public class NationController {
+
+    @ApiOperation(&quot;根据民族名称分页查询民族信息&quot;)
+    @GetMapping(&quot;/page.do&quot;)
+    public List&lt;Nation&gt; page(@ApiParam(&quot;民族名称&quot;) String name, @ApiParam(value=&quot;第几页&quot;, required=true) int pageNo){
+        List&lt;Nation&gt; list = new ArrayList&lt;&gt;();
+        Nation nation = new Nation(&quot;b69d81bb-4ac1-11ed-b98f-68f7287a2222&quot;,1,&quot;汉族&quot;,new Date(),new Date());
+        list.add(nation);
+        nation = new Nation(&quot;355745c2-1a29-48e3-933f-d7366ef0728d&quot;,2,&quot;维吾尔族&quot;,new Date(),new Date());
+        list.add(nation);
+        nation = new Nation(&quot;1a62d852-c777-407d-801e-d48ae0fc044c&quot;,3,&quot;蒙古族&quot;,new Date(),new Date());
+        list.add(nation);
+        return list;
+    }
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><h5 id="_4-5、访问测试"><a href="#_4-5、访问测试" class="header-anchor">#</a> 4.5、访问测试</h5> <p>http://localhost:8080/swagger-ui.html</p> <h4 id="_5、配置swagger"><a href="#_5、配置swagger" class="header-anchor">#</a> 5、配置Swagger</h4> <h5 id="_5-1、文档信息"><a href="#_5-1、文档信息" class="header-anchor">#</a> 5.1、文档信息</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>package com.soft.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+
+import java.util.ArrayList;
+
+@Configuration
+public class ApplicationConfig {
+
+	@Bean
+	public ApiInfo apiInfo() {
+	    Contact contact = new Contact(&quot;高焕杰&quot;, &quot;https://blog.csdn.net/gaohuanjie&quot;, &quot;3114728709@qq.com&quot;);
+	    return new ApiInfo(
+	            &quot;dubhe API 文档&quot;, // 标题
+	            &quot;API 文档&quot;, // 描述
+	            &quot;v1.0&quot;, // 版本
+	            &quot;https://space.bilibili.com/276896380&quot;, // 组织链接
+	            contact, // 联系人信息
+	            &quot;Apache 2.0&quot;, // 许可
+	            &quot;http://www.apache.org/licenses/LICENSE-2.0&quot;, // 许可链接
+	            new ArrayList()// 扩展
+	    );
+	}
+	
+	@Bean
+	public Docket docket(ApiInfo apiInfo){
+	    return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo);
+	}
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><h5 id="_5-2、扫描接口"><a href="#_5-2、扫描接口" class="header-anchor">#</a> 5.2、扫描接口</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>@Bean
+public Docket docket(ApiInfo apiInfo){
+    return new Docket(DocumentationType.SWAGGER_2)
+            .apiInfo(apiInfo)
+            //通过.select()方法配置扫描接口
+            .select()
+            /*
+            	RequestHandlerSelectors 配置如何扫描接口
+                any()：全部扫描（项目中的所有接口）
+                none()：不扫描
+                basePackage：扫描指定包下的接口
+                withClassAnnotation：扫描带有指定注解的类
+                withMethodAnnotation：扫描带有指定注解的方法
+            */
+            .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))//扫描RestController修饰的所有类
+            .build();
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="三-、knife4j"><a href="#三-、knife4j" class="header-anchor">#</a> （三）、Knife4j</h2> <h4 id="_1、简介-2"><a href="#_1、简介-2" class="header-anchor">#</a> 1、简介</h4> <p>Knife4j为Java MVC框架集成Swagger生成Api文档提供了增强解决方案，前身是swagger-bootstrap-ui，后来改名knife4j是希望她能像一把匕首一样小巧、轻量并功能强悍！</p> <h4 id="_2、特点"><a href="#_2、特点" class="header-anchor">#</a> 2、特点</h4> <p>a、简洁——基于左右菜单式的布局方式，更符合国人的操作习惯，文档更清晰；</p> <p>b、增强——支持接口排序、Swagger资源保护、导出Markdown、参数缓存等强大功能。</p> <p>c、个性化——个性化配置项，支持接口地址、接口description属性、UI增强等配置功能；</p> <h4 id="_3、实战"><a href="#_3、实战" class="header-anchor">#</a> 3、实战</h4> <p>SpringBoot项目去掉springfox-swagger2、springfox-swagger-ui、swagger-annotations和swagger-models四个依赖，然后添加如下依赖：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.github.xiaoymin&lt;/groupId&gt;
+    &lt;artifactId&gt;knife4j-spring-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;3.0.3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h4 id="_4、访问"><a href="#_4、访问" class="header-anchor">#</a> 4、访问</h4> <p>http://localhost:8080/doc.html</p></div> <footer class="page-edit" style="margin:0;"><div class="edit-link"><a href="https://github.com/liyupi/codefather/edit/master/学习笔记/后端相关/Swagger&amp;Knife4j.md" target="_blank" rel="noopener noreferrer">完善页面</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/my_blog/git%E6%8C%87%E4%BB%A4/" class="prev">
+        Git关键指令
+      </a></span> <span class="next"><a href="/my_blog/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+        小程序开发
+      </a>
+      →
+    </span></p></div></div> <div class="toc-container-sidebar"><div class="pos-box"><div class="icon-arrow"></div> <div class="scroll-box" style="max-height:86vh"><div style="font-weight:bold;">Swagger&amp;Knife4j</div> <hr> <div class="toc-box"><ul class="toc-sidebar-links"><li><a href="/my_blog/swagger-knife4j/#一-、准备" class="toc-sidebar-link">（一）、准备</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/my_blog/swagger-knife4j/#_1、springboot项目" class="toc-sidebar-link">1、SpringBoot项目</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/my_blog/swagger-knife4j/#_2、vo类" class="toc-sidebar-link">2、vo类</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/my_blog/swagger-knife4j/#_3、controller类" class="toc-sidebar-link">3、controller类</a></li></ul></li><li><a href="/my_blog/swagger-knife4j/#二-、swagger" class="toc-sidebar-link">（二）、Swagger</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/my_blog/swagger-knife4j/#_1、简介" class="toc-sidebar-link">1、简介</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/my_blog/swagger-knife4j/#_2、作用" class="toc-sidebar-link">2、作用</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/my_blog/swagger-knife4j/#_3、注解" class="toc-sidebar-link">3、注解</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/my_blog/swagger-knife4j/#_4、实战" class="toc-sidebar-link">4、实战</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-5"><a href="/my_blog/swagger-knife4j/#_4-1、依赖" class="toc-sidebar-link">4.1、依赖</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-5"><a href="/my_blog/swagger-knife4j/#_4-2、开启支持" class="toc-sidebar-link">4.2、开启支持</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-5"><a href="/my_blog/swagger-knife4j/#_4-3、vo类" class="toc-sidebar-link">4.3、vo类</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-5"><a href="/my_blog/swagger-knife4j/#_4-4、controller类" class="toc-sidebar-link">4.4、controller类</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-5"><a href="/my_blog/swagger-knife4j/#_4-5、访问测试" class="toc-sidebar-link">4.5、访问测试</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/my_blog/swagger-knife4j/#_5、配置swagger" class="toc-sidebar-link">5、配置Swagger</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-5"><a href="/my_blog/swagger-knife4j/#_5-1、文档信息" class="toc-sidebar-link">5.1、文档信息</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-5"><a href="/my_blog/swagger-knife4j/#_5-2、扫描接口" class="toc-sidebar-link">5.2、扫描接口</a></li></ul></li><li><a href="/my_blog/swagger-knife4j/#三-、knife4j" class="toc-sidebar-link">（三）、Knife4j</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/my_blog/swagger-knife4j/#_1、简介-2" class="toc-sidebar-link">1、简介</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/my_blog/swagger-knife4j/#_2、特点" class="toc-sidebar-link">2、特点</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/my_blog/swagger-knife4j/#_3、实战" class="toc-sidebar-link">3、实战</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/my_blog/swagger-knife4j/#_4、访问" class="toc-sidebar-link">4、访问</a></li></ul></li></ul></div></div></div></div></div>  <main class="footer"> <div class="copy-right"><span class="name"> whh   |     </span> <a target="_blank" rel="noreferrer">
+          
+        </a></div></main></main> <aside class="page-sidebar"> <div class="page-side-toolbar"></div>  </aside></div><div class="global-ui"><!----></div></div>
+    <script src="/my_blog/assets/js/app.635dd26a.js" defer></script><script src="/my_blog/assets/js/2.8c322ccd.js" defer></script><script src="/my_blog/assets/js/69.20dc7b82.js" defer></script>
+  </body>
+</html>
